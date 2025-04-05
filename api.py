@@ -2,8 +2,6 @@ import os
 from openai import OpenAI
 
 def generate_easy_science_mcq():
-    # Get the OpenAI API key from environment variables. 
-    # It should be stored as an environment variable named 'OPENAI_API_KEY'.
     api_key = os.environ["openmcq"]  
     client = OpenAI(api_key=api_key)
     
@@ -20,8 +18,8 @@ def generate_easy_science_mcq():
             {"role": "system", "content": "You are an AI that generates multiple-choice science questions for kids."},
             {"role": "user", "content": prompt}
         ],
-        temperature=0.7,  # Keeps responses varied yet accurate
-        max_tokens=150,   # Ensures concise output
+        temperature=0.7,  
+        max_tokens=150,  
         top_p=1
     )
     
